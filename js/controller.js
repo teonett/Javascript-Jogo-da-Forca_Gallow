@@ -1,28 +1,28 @@
 const criaController = jogo => {
 
     const $entrada = $('.entrada');
-    const $lacunas = $('.lacunas');
+    const $gaps = $('.gaps');
 
-    const exibeLacunas = () => {
+    const exibegaps = () => {
 
-        $lacunas.empty();
-        jogo.getLacunas().forEach(function (lacuna) {
+        $gaps.empty();
+        jogo.getgaps().forEach(function (gap) {
             $('<li>')
-                .addClass('lacuna')
-                .text(lacuna)
-                .appendTo($lacunas);
+                .addClass('gap')
+                .text(gap)
+                .appendTo($gaps);
         });
     };
 
     const mudaPlaceHolder = texto => $entrada.attr('placeholder', texto);
 
-    const guardaPalavraSecreta = () => {
+    const guardaSecretWord = () => {
 
         try {
-            jogo.setPalavraSecreta($entrada.val().trim());
+            jogo.setSecretWord($entrada.val().trim());
             $entrada.val('');
             mudaPlaceHolder('chuta');
-            exibeLacunas();
+            exibegaps();
         } catch(err) {
             alert(err.message);
         }
@@ -31,8 +31,8 @@ const criaController = jogo => {
     const reinicia = () => {
 
         jogo.reinicia();
-        $lacunas.empty();
-        mudaPlaceHolder('palavra secreta');
+        $gaps.empty();
+        mudaPlaceHolder('palavra secreta | secret word');
     };
 
     const leChute = () => {
@@ -40,15 +40,15 @@ const criaController = jogo => {
         try {
             jogo.processaChute($entrada.val().trim().substr(0, 1));
             $entrada.val('');
-            exibeLacunas();
+            exibegaps();
     
             if(jogo.ganhouOuPerdeu()) {
     
                 setTimeout(() => {
                     if(jogo.ganhou()) {
-                        alert('Parabéns, você ganhou');
+                        alert('Parabéns, você ganhou |  Congratulations you win');
                     } else if (jogo.perdeu()) {
-                        alert('Que pena, tente novamente')
+                        alert('Que pena, tente novamente | What pity, try again')
                     }
                     reinicia();                    
                 }, 200);
@@ -64,7 +64,7 @@ const criaController = jogo => {
             if (event.which == 13) {
                 switch (jogo.getEtapa()) {
                     case 1:
-                        guardaPalavraSecreta();
+                        guardaSecretWord();
                         break;
                     case 2:
                         leChute();

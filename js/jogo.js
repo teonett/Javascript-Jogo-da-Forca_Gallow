@@ -1,72 +1,72 @@
 const criaJogo =  sprite => {
 
-    let palavraSecreta = '';
-    let lacunas = [];
+    let secretword = '';
+    let gaps = [];
     let etapa = 1;
 
-    const ganhou =  () => lacunas.length
-            ? !lacunas.some(function (lacuna) {
-                return lacuna == '';
+    const winner =  () => gaps.length
+            ? !gaps.some(function (gap) {
+                return gap == '';
             })
             : false;
 
-    const perdeu = () => sprite.isFinished();
+    const looser = () => sprite.isFinished();
     
-    const ganhouOuPerdeu = () => ganhou() || perdeu();
+    const winnerOulooser = () => winner() || looser();
 
     const reinicia = () => {
 
-        etapa = 1;
-        lacunas = [];
-        palavraSecreta = '';
+        step = 1;
+        gaps = [];
+        secretword = '';
         sprite.reset();
     };
 
     const processaChute = chute => {
 
-        if (!chute.trim()) throw Error('Chute inválido');
+        if (!chute.trim()) throw Error('Chute inválido | Invalid hunt');
 
         const exp = new RegExp(chute, 'gi');
-        let resultado, acertou = false;
+        let resultado, hit = false;
 
-        while (resultado = exp.exec(palavraSecreta)) {
+        while (resultado = exp.exec(secretword)) {
 
-            acertou = lacunas[resultado.index] = chute;
+            hit = gaps[resultado.index] = chute;
         }
 
-        if (!acertou) sprite.nextFrame();
+        if (!hit) sprite.nextFrame();
     };
 
-    const criaLacunas = () => {
+    const criagaps = () => {
 
-        for (let i = 0; i < palavraSecreta.length; i++) {
-            lacunas.push('');
+        for (let i = 0; i < secretword.length; i++) {
+            gaps.push('');
         }
     };
 
     const proximaEtapa = () => etapa = 2;
 
-    const setPalavraSecreta = palavra => {
+    const setsecretword = palavra => {
 
-        if (!palavra.trim()) throw Error('Palavra secreta inválida');
+        if (!palavra.trim()) throw Error('Palavra secreta inválida | Invalid secret word' );
 
-        palavraSecreta = palavra;
-        criaLacunas();
+        secretword = palavra;
+        criagaps();
         proximaEtapa();
     };
 
-    const getLacunas = () => lacunas;
+    const getgaps = () => gaps;
 
     const getEtapa = () => etapa;
 
     return {
-        setPalavraSecreta,
-        getLacunas,
+        setsecretword,
+        getgaps,
         getEtapa,
         processaChute,
-        ganhou,
-        perdeu,
-        ganhouOuPerdeu,
+        winner,
+        looser,
+        winnerOulooser,
         reinicia
     };
 };

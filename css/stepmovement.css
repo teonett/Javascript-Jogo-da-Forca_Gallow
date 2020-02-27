@@ -5,20 +5,20 @@
     margin: 0 auto;
 }
 
-.frame1 { background-position: 0 0; }
+.movement1 { background-position: 0 0; }
 
-.frame2 { background-position: 25% 0; }
+.movement2 { background-position: 25% 0; }
 
-.frame3 { background-position: 50% 0; }
+.movement3 { background-position: 50% 0; }
 
-.frame4 { background-position: 75% 0; }
+.movement4 { background-position: 75% 0; }
 
-.frame5 { background-position: 100% 0; }
+.movement5 { background-position: 100% 0; }
 
-.frame6 { background-position: 0 100%; }
+.movement6 { background-position: 0 100%; }
 
-.frame7 { background-position: 25% 100%; }
+.movement7 { background-position: 25% 100%; }
 
-.frame8 { background-position: 50% 100%; }
+.movement8 { background-position: 50% 100%; }
 
-.frame9 { background-position: 75% 100%; }
+.movement9 { background-position: 75% 100%; }
