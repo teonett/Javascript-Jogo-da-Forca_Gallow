@@ -1,28 +1,28 @@
 const criaController = jogo => {
 
     const $entrada = $('.entrada');
-    const $gaps = $('.gaps');
+    const $lacunas = $('.lacunas');
 
-    const exibegaps = () => {
+    const exibeLacunas = () => {
 
-        $gaps.empty();
-        jogo.getgaps().forEach(function (gap) {
+        $lacunas.empty();
+        jogo.getLacunas().forEach(function (lacuna) {
             $('<li>')
-                .addClass('gap')
-                .text(gap)
-                .appendTo($gaps);
+                .addClass('lacuna')
+                .text(lacuna)
+                .appendTo($lacunas);
         });
     };
 
     const mudaPlaceHolder = texto => $entrada.attr('placeholder', texto);
 
-    const guardaSecretWord = () => {
+    const guardaPalavraSecreta = () => {
 
         try {
-            jogo.setSecretWord($entrada.val().trim());
+            jogo.setPalavraSecreta($entrada.val().trim());
             $entrada.val('');
             mudaPlaceHolder('chuta | hunt');
-            exibegaps();
+            exibeLacunas();
         } catch(err) {
             alert(err.message);
         }
@@ -31,7 +31,7 @@ const criaController = jogo => {
     const reinicia = () => {
 
         jogo.reinicia();
-        $gaps.empty();
+        $lacunas.empty();
         mudaPlaceHolder('palavra secreta | secret word');
     };
 
@@ -40,13 +40,13 @@ const criaController = jogo => {
         try {
             jogo.processaChute($entrada.val().trim().substr(0, 1));
             $entrada.val('');
-            exibegaps();
+            exibeLacunas();
     
             if(jogo.ganhouOuPerdeu()) {
     
                 setTimeout(() => {
                     if(jogo.ganhou()) {
-                        alert('Parabéns, você ganhou |  Congratulations you win');
+                        alert('Parabéns, você ganhou | Congratulations , you win');
                     } else if (jogo.perdeu()) {
                         alert('Que pena, tente novamente | What pity, try again')
                     }
@@ -64,7 +64,7 @@ const criaController = jogo => {
             if (event.which == 13) {
                 switch (jogo.getEtapa()) {
                     case 1:
-                        guardaSecretWord();
+                        guardaPalavraSecreta();
                         break;
                     case 2:
                         leChute();

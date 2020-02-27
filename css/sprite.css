@@ -1,7 +1,8 @@
-.movement {
+.sprite {
     background: url(../img/sprite.jpeg) no-repeat;
-    width: 162.6px;
-    height: 160.5px;
+    background-size: 2700px 800px;
+    width: 542px;
+    height: 404px;
     margin: 0 auto;
 }
 

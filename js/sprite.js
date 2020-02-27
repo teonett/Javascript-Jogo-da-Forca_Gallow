@@ -1,6 +1,6 @@
 const createSprite = selector => {
 
-    const movemovement = (from, to) => {
+    const moveFrame = (from, to) => {
 
         $el.removeClass(from)
             .addClass(to);
@@ -8,14 +8,14 @@ const createSprite = selector => {
 
     const hasNext = () => current + 1 <= last;
 
-    const nextMovement = () => {
+    const nextFrame = () => {
 
-        if (hasNext()) movemovement(movements[current], movements[++current]);
+        if (hasNext()) moveFrame(frames[current], frames[++current]);
     };
 
     const reset = () => {
 
-        movemovement(movements[current], movements[0]);
+        moveFrame(frames[current], frames[0]);
         current = 0;
     };
 
@@ -23,18 +23,18 @@ const createSprite = selector => {
 
     const $el = $(selector);
 
-    const movements = [
+    const frames = [
         'movement1', 'movement2', 'movement3', 'movement4', 'movement5',
         'movement6', 'movement7', 'movement8', 'movement9'
     ];
 
-    let current = 0;
-    const last = movements.length - 1;
+    let current = 0;r
+    const last = frames.length - 1;
 
-    $el.addClass(movements[current]);
+    $el.addClass(frames[current]);
 
     return {
-        nextMovement,
+        nextFrame,
         reset,
         isFinished
     };
