@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Forca | Gallow</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="Author" content="Jose Teotonio">
+        <meta name="Key Words" content="Gallow, Gallow Game, Forca, Jogo Forca">
+
+        <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    
+        <link rel="stylesheet" href="css/stepmovement.css">
+        <link rel="stylesheet" href="css/lacuna.css">
+    
+</head>
+<body>
+    
+    <header>Jogo da Forca | Gallow Game</header>
+    
+    <div class="container" style="padding-top: 200px;">
+
+        <!-- div com a classe sprite -->
+        <div class="movement"></div>
+        
+        <ul class="lacunas text-center"></ul>
+
+        <div class="text-center">
+        <input id="entrada" 
+            class="entrada"
+            placeholder="Palavra secreta" autofocus>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/sprite.js"></script>
+    <script src="js/jogo.js"></script>
+    <script src="js/controller.js"></script>
+    <script>
+        criaController(
+            criaJogo(
+                createSprite('.sprite')
+            )
+        ).inicia();
+    </script>
+
+<footer>&copy;2020 - Jose Teotonio - E-mail: teonett@gmail.com - Jogo da Forca | Gallow Game</footer>
+
+</body>
+</html>
