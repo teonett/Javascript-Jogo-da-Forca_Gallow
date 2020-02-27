@@ -21,7 +21,7 @@ const criaController = jogo => {
         try {
             jogo.setSecretWord($entrada.val().trim());
             $entrada.val('');
-            mudaPlaceHolder('chuta');
+            mudaPlaceHolder('chuta | hunt');
             exibegaps();
         } catch(err) {
             alert(err.message);
