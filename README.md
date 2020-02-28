@@ -12,3 +12,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>
 </p>
+
+<img src="https://github.com/teonett/Javascript-Jogo-da-Forca_Gallow/blob/master/img/gallow01.png">
+
+<img src="https://github.com/teonett/Javascript-Jogo-da-Forca_Gallow/blob/master/img/gallow02.png">
+
+<img src="https://github.com/teonett/Javascript-Jogo-da-Forca_Gallow/blob/master/img/gallow03.png">
+
+<img src="https://github.com/teonett/Javascript-Jogo-da-Forca_Gallow/blob/master/img/gallow04.png">
+
+<img src="https://github.com/teonett/Javascript-Jogo-da-Forca_Gallow/blob/master/img/gallow05.png">
